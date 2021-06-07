@@ -11,9 +11,8 @@ class mailchimp_email extends REST_Controller{
 		$this->mail_api_key = "myApiKey-us16";
 		$this->test_audience_group_id = "test12345678";
     }
-
-
-	//Get the audiences from the group
+    
+    //Get the audiences from the group
 	//parameters = mailchimp_group_id, mailchimp_api_key
 	public function get_mailchimp_list($params){   
 
@@ -73,9 +72,9 @@ class mailchimp_email extends REST_Controller{
 
         return $result;
     }
-
-
-	// Send email about the campaign
+    
+    
+    // Send email about the campaign
 	// parameters = campaign_id
     public function send_campaign($params){
 
