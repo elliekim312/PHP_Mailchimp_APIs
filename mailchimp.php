@@ -13,8 +13,8 @@ class mailchimp_email extends REST_Controller{
     }
     
     //Get the audiences from the group
-	//parameters = mailchimp_group_id, mailchimp_api_key
-	public function get_mailchimp_list($params){   
+    //parameters = mailchimp_group_id, mailchimp_api_key
+    public function get_mailchimp_list($params){   
 
         $result = json_decode($this->call("GET",MAILCHIMP_API_URL.'lists/'.$params['mailchimp_group_id'].'/members',$params),true);
 
@@ -75,7 +75,7 @@ class mailchimp_email extends REST_Controller{
     
     
     // Send email about the campaign
-	// parameters = campaign_id
+    // parameters = campaign_id
     public function send_campaign($params){
 
         $result = json_decode($this->call("POST",MAILCHIMP_API_URL.'campaigns/'. $params['campaign_id'] . '/actions/send/',$params),true);
