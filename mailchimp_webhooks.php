@@ -6,9 +6,6 @@ ini_set('display_errors', '1');
 include('../vendor/drewm/mailchimp-api/src/MailChimp.php');
 include('../vendor/drewm/mailchimp-api/src/Webhook.php');
 
-//For webhook
-//composer 
-
 //mailchimp will send data by post method
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$event_type     = $_POST['type'];
