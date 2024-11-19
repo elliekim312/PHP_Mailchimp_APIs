@@ -8,7 +8,7 @@ include('../vendor/drewm/mailchimp-api/src/Webhook.php');
 
 //mailchimp will send data by post method
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-	$event_type     = $_POST['type'];
+    $event_type     = $_POST['type'];
     $data           = $_POST['data'];
 
     $list_id        = $data['list_id'];
@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     switch ($event_type) :
 
-		// If subscriber is added, 
+	// If subscriber is added, 
         case 'subscribe':
             $db = new mysqli("yourhost", "id", "pw", "db name");
             $sql = "INSERT mailchimp_webhooks (sub_status, created_date, email) VALUES ('Y', NOW(), '" . $email . "','" . $user_firstname  ."')";
@@ -29,8 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $db->query($sql);
             break;
 			
-		// If subscriber is unsubscribed,
-		case 'unsubscribe':
+	// If subscriber is unsubscribed,
+	case 'unsubscribe':
             $db = new mysqli("yourhost", "id", "pw", "db name");
             $sql = "UPDATE mailchimp_webhooks set sub_status='N', updated_date = NOW() where email = '" . $email ."'";
             $db->set_charset("utf8");
